@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 .env
+
+iTasks.postman_collection.json
