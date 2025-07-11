@@ -1,4 +1,6 @@
-const baseUrl = import.meta.env.VITE_APP_BASEURL;
-const port = import.meta.env.VITE_APP_PORT;
+const conf = {
+    baseUrl: import.meta.env.VITE_APP_BASEURL,
+    port: import.meta.env.VITE_APP_PORT
+}
 
-export {baseUrl, port};
+export default conf;
