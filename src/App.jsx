@@ -12,8 +12,9 @@ function App() {
   useEffect(() => {
     authService.getCurrentUser()
     .then((response) => {
+      setTimeout(() => {}, 2000)
       if(response) {
-        dispatch(login(response.data.data))
+        dispatch(login(response.data))
       } else {
         dispatch(logout())
       }
@@ -23,12 +24,12 @@ function App() {
   }, [])
   
   return (
-    loading ? <div className="flex justify-center items-center h-screen">Loading...</div> :
-    <>
+    loading ? <p className="text-green-500 text-3xl">Loading...</p> :
+    <div>
       <Header/>
         <Outlet/>
       <Footer/>
-    </>
+    </div>
   )
 }
 

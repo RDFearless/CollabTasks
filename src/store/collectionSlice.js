@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    collection: [],
+    collections: null,
     currentCollection: null
 }
 
@@ -10,21 +10,21 @@ const collectionSlice = createSlice({
     initialState,
     reducers: {
         setCollection: (state, action) => {
-            state.collection = action.payload;
+            state.collections = action.payload;
         },
         addCollection: (state, action) => {
-            state.collection.push(action.payload);
+            state.collections.push(action.payload);
         },
         updateCollection: (state, action) => {
-            const index = state.collection.findIndex(
+            const index = state.collections.findIndex(
                 (collection) => collection.id === action.payload.id
             );
             if (index !== -1) {
-                state.collection[index] = action.payload;
+                state.collections[index] = action.payload;
             }
         },
         deleteCollection: (state, action) => {
-            state.collection = state.collection.filter(
+            state.collections = state.collections.filter(
                 (collection) => collection.id !== action.payload
             );
         },

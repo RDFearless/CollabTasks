@@ -17,7 +17,7 @@ function Signup() {
         authService.register(data)
         .then((response) => {
             if(response) {
-                dispatch(login(response.data.data));
+                dispatch(login(response.data));
                 
                 // Redirect to home page after successful signup
                 navigate("/");

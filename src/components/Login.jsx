@@ -28,7 +28,7 @@ function Login() {
       .login(loginData)
       .then((response) => {
         if (response) {
-          dispatch(login(response.data.data));
+          dispatch(login(response.data));
 
           // Redirect to home page after successful login
           navigate("/");
