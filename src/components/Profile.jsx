@@ -100,9 +100,10 @@ function Profile() {
                   >
                     Edit Profile
                   </Button>
+                  
                   <Button
                     className="bg-gray-600 hover:bg-gray-700"
-                    onClick={() => {}}
+                    onClick={() => navigate("/change-password")}
                   >
                     Change Password
                   </Button>

@@ -4,11 +4,14 @@ import App from "./App.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
 import Profile from "./pages/Profile.jsx";
 import Home from "./pages/Home.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
+import ChangePassword from "./pages/ChangePassword.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/edit-profile",
         element: <EditProfile/>
+      },
+      {
+        path: "change-password",
+        element: <ChangePassword />,
       }
     ],
   },

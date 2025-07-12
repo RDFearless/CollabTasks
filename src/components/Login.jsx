@@ -5,13 +5,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button, Input } from "./index.js";
 import { useState } from "react";
 import { login } from "../store/authSlice";
+import { useLocation } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
   const { register, handleSubmit } = useForm();
-
+  
+  const message = useLocation().state?.message || '';
+  const messageType = useLocation().state?.messageType || 'info';
+  
   const signin = (data) => {
     setError("");
     // Determine if input is email or username and create the appropriate payload
@@ -80,6 +84,21 @@ function Login() {
             <Button type="submit" className="w-full">
               Sign In
             </Button>
+            
+            {/* Display message if redirecting or showing error */}
+            {
+              message && (
+                <div
+                  className={`mt-4 text-center text-sm ${
+                    messageType === "error"
+                      ? "text-red-600"
+                      : "text-green-600"
+                  }`}
+                >
+                  {message}
+                </div>
+              )
+            }
           </div>
         </form>
       </div>
