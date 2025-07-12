@@ -1,4 +1,5 @@
 import { logout } from "../../store/authSlice";
+import { setCollection } from "../../store/collectionSlice.js";
 import { useDispatch } from "react-redux";
 import authService from "../../api/auth.js";
 
@@ -7,6 +8,7 @@ function LogoutBtn() {
   const handleLogout = () => {
     authService.logout().then(() => {
       dispatch(logout());
+      dispatch(setCollection(null))
     });
   };
 

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { LogoutBtn, Container } from "../index.js";
+import { Container } from "../index.js";
 
 function Header() {
   const navigate = useNavigate();
@@ -48,11 +48,6 @@ function Header() {
                     </button>
                   </li>
                 )
-            )}
-            {isAuthenticated && (
-              <li>
-                <LogoutBtn />
-              </li>
             )}
           </ul>
         </nav>
