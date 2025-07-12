@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button, Input } from "./index.js";
 import { useState } from "react";
 import { login } from "../store/authSlice";
-import parse from "html-react-parser";
 
 function Login() {
   const navigate = useNavigate();

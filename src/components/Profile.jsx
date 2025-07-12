@@ -1,11 +1,10 @@
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Container, Button, LogoutBtn } from "./index.js";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const userData = useSelector((state) => state.auth.userData);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   if (!userData) {
     return (
@@ -34,12 +33,6 @@ function Profile() {
 
           {/* Profile Content */}
           <div className="p-6">
-            {error && (
-              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-                {error}
-              </div>
-            )}
-
             <div className="space-y-6">
               {/* User Avatar */}
               <div className="flex items-center space-x-4">
@@ -103,7 +96,7 @@ function Profile() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
                     className="bg-blue-600 hover:bg-blue-700"
-                    onClick={() => {}}
+                    onClick={() => navigate("/edit-profile")}
                   >
                     Edit Profile
                   </Button>
