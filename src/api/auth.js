@@ -4,15 +4,12 @@ export class AuthService {
     async register({fullname, email, username, password}) {
         try {
             // register
-            await api.post('/users/register', {
+            return await api.post('/users/register', {
                 fullname,
                 email,
                 username,
                 password
             });
-            
-            // login after registration
-            await this.login({email, username, password});
         } catch (error) {
             console.error(error);
             throw error;

@@ -8,6 +8,8 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Profile from "./Profile";
 import CollectionCard from "./CollectionCard";
+import CollectionForm from "./CollectionForm";
+import ColorDropdown from "./ColorDropdown";
 
 export {
   Header,
@@ -20,4 +22,6 @@ export {
   Signup,
   Profile,
   CollectionCard,
+  CollectionForm,
+  ColorDropdown,
 };

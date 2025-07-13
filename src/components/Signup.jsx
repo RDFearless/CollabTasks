@@ -12,20 +12,16 @@ function Signup() {
     const [error, setError] = useState(null);
     const { register, handleSubmit } = useForm()
     
-    const signup = (data) => {
+    const signup = async (data) => {
         setError("");
-        authService.register(data)
-        .then((response) => {
-            if(response) {
-                dispatch(login(response.data));
-                
-                // Redirect to home page after successful signup
-                navigate("/");
-            }
-        })
-        .catch((error) => {
-            setError(error.message)
-        });
+        try {
+            const response = await authService.register(data);
+            dispatch(login(response.data));
+            await authService.login(data)
+            navigate("/");
+        } catch (error) {
+            setError(error.message || "An error occurred while signing up.");
+        }
     }
     
     return (

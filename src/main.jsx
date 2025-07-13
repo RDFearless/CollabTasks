@@ -11,6 +11,7 @@ import Profile from "./pages/Profile.jsx";
 import Home from "./pages/Home.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
 import ChangePassword from "./pages/ChangePassword.jsx";
+import AddCollection from "./pages/AddCollection.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,12 +36,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/edit-profile",
-        element: <EditProfile/>
+        element: <EditProfile />,
       },
       {
-        path: "change-password",
+        path: "/change-password",
         element: <ChangePassword />,
-      }
+      },
+      {
+        path: "/add-collection",
+        element: <AddCollection />,
+      },
     ],
   },
 ]);

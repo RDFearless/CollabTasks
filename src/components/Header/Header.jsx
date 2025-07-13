@@ -41,7 +41,7 @@ function Header() {
                 item.active && (
                   <li key={item.path}>
                     <button
-                      onClick={() => navigate(item.path)}
+                      onClick={() => navigate(item.path, { replace: true })}
                       className="text-gray-300 hover:text-white transition-colors duration-200 px-2 py-1 rounded hover:bg-gray-700 text-sm md:text-base bg-transparent border-none cursor-pointer"
                     >
                       {item.name}
