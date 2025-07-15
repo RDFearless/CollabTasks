@@ -24,8 +24,7 @@ function App() {
   return (
     <div>
       <Header />
-        <Outlet />
-      <Footer />
+      <Outlet />
       <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
