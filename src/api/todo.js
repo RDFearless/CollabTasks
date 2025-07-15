@@ -45,6 +45,9 @@ export class TodoService {
     
     async getTodosByCollectionId(collectionId, completed) {
         try {
+            if( completed === undefined) {
+                return await api.get(`/todos/getTodos/${collectionId}`);
+            }
             return await api.get(`/todos/getTodos/${collectionId}?completed=${completed}`);
         } catch (error) {
             console.error(error);
