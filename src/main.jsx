@@ -12,6 +12,7 @@ import Home from "./pages/Home.jsx";
 import EditProfile from "./pages/EditProfile.jsx";
 import ChangePassword from "./pages/ChangePassword.jsx";
 import AddCollection from "./pages/AddCollection.jsx";
+import Todos from "./pages/Todos.jsx";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/add-collection",
         element: <AddCollection />,
+      },
+      {
+        path: "/todos/:collectionId",
+        element: <Todos />,
       },
     ],
   },

@@ -1,4 +1,10 @@
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCurrentCollection } from "../store/collectionSlice";
+
 function CollectionCard({ collection }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // Readable date format
   const formatDate = (dateString) => {
@@ -6,8 +12,14 @@ function CollectionCard({ collection }) {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
+  const handleClick = () => {
+    // Navigate to todos page with collection ID as parameter
+    navigate(`/todos/${collection._id}`);
+  };
+
   return (
     <div
+      onClick={handleClick}
       className="cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-1 relative group"
       style={{
         transformStyle: "preserve-3d",
@@ -16,7 +28,7 @@ function CollectionCard({ collection }) {
       <div
         className="rounded-lg shadow-md overflow-hidden h-44 flex flex-col relative"
         style={{
-          backgroundColor: collection.color, 
+          backgroundColor: collection.color,
           borderLeft: `5px solid ${collection.color}`,
           opacity: 0.9,
           boxShadow: `0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06)`,

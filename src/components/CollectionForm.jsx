@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Button } from "./index.js";
+import { Button, Input } from "./index.js";
 import ColorDropdown from "./ColorDropdown";
-
 function CollectionForm({ onSubmit, loading }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -15,26 +14,21 @@ function CollectionForm({ onSubmit, loading }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label
-          htmlFor="name"
-          className="block text-sm font-medium text-gray-700 mb-2"
-        >
-          Collection Name
-        </label>
-        <input
+        <Input
           type="text"
           id="name"
+          label="Collection Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
           placeholder="Enter collection name"
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400"
         />
       </div>
 
       <div>
         <label
-          htmlFor="description"
+          htmlFor="collectionDescription"
           className="block text-sm font-medium text-gray-700 mb-2"
         >
           Description

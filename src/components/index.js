@@ -10,6 +10,8 @@ import Profile from "./Profile";
 import CollectionCard from "./CollectionCard";
 import CollectionForm from "./CollectionForm";
 import ColorDropdown from "./ColorDropdown";
+import TodoCard from "./TodoCard";
+import TodoForm from "./TodoForm";
 
 export {
   Header,
@@ -24,4 +26,6 @@ export {
   CollectionCard,
   CollectionForm,
   ColorDropdown,
+  TodoCard,
+  TodoForm
 };

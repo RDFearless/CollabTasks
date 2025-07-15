@@ -24,10 +24,13 @@ function Home() {
         // else fetch from API once, and store in redux
         else {
           const response = await collectionService.getMyCollections();
-          const collectionData = response.data;
-
-          setCollections(collectionData.collections); // update UI
-          dispatch(setCollection(collectionData.collections)); // update redux store
+          
+          if(response.data?.totalCollections > 0) {
+            const collectionData = response.data;
+  
+            setCollections(collectionData.collections); // update UI
+            dispatch(setCollection(collectionData.collections)); // update redux store
+          }
         }
       } catch (error) {
         setError(
