@@ -8,7 +8,13 @@ const api = axios.create({
 
 api.interceptors.response.use(
   (response) => (response.data),
-  (error) => (Promise.reject(error.response.data))
+  (error) => {
+    if(error.message === "Unauthrized" && error.status === 401) {
+      api.post("/users/refresh-token")
+      .then((response) => response.data)
+      .catch((error) => Promise.reject(error));
+    }
+  }
 )
 
 export default api;
